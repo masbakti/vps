@@ -1,0 +1,16 @@
+#!/bin/bash
+Login=masbakti-`</dev/urandom tr -dc a-d0-9 | head -c2`
+masaaktif="0"
+Pass=`</dev/urandom tr -dc a-d0-9 | head -c3`
+#IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
+echo -e ""
+echo -e "====-Trial Akun-===="
+echo -e ""
+echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+echo -e "Host: 172.246.118.106"
+echo -e "Port: 443"
+echo -e "Username: $Login "
+echo -e "Password: $Pass\n"
+echo -e "===-Terima Kasih-==="
+echo -e "Aktif Sampai: `date -d "$exp" +"%d-%b-%Y"`"
